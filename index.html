@@ -15,17 +15,17 @@
 <body>
     <div>
 
-        <button class="btn btn-outline-primary" id="previous" onclick="previous()"><<<</button>
+        <button class="btn btn-outline-primary" id="previous" onclick="previous()">Previous</button>
         <input class="dropdown col-sm-2" name="month" id="month" onchange="jump()">
            
-        <button class="btn btn-outline-primary " id="next" onclick="next()">>>></button>
+        <button class="btn btn-outline-primary " id="next" onclick="next()">Next</button>
         <br/>
-        <button class="btn btn-outline-primary" id="previousyear" onclick="previousyear()"><<<</button>
+        <button class="btn btn-outline-primary" id="previousyear" onclick="previousyear()">Previous</button>
 
         <label for="year"></label>
         <input class="dropdown col-sm-2" name="year" id="year" onchange="jump()">
             
-        <button class="btn btn-outline-primary" id="nextyear" onclick="nextyear()">>>></button>
+        <button class="btn btn-outline-primary" id="nextyear" onclick="nextyear()">Next</button>
 
     </div>
 
@@ -44,14 +44,22 @@
             <form>
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Event</label>
-                <input type="text" class="form-control" id="recipient-name">
+                <input type="text" class="form-control" id="recipientname">
               </div>
               
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Don't add</button>
-            <button type="button"  class="btn btn-primary">Add the event</button>
+            <button type="button"  class="btn btn-primary" id="addToTable">Add the event</button>
+          </div>
+          <div>
+            <table border="1">
+              <th>Events</th>
+              <tr id="eventRow">
+                
+              </tr>
+            </table>
           </div>
         </div>
       </div>
