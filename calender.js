@@ -46,10 +46,10 @@ function showCalendar(month, year) {
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
     let date = 1;
 
+
     let tbl = document.getElementById("calendar-body"); 
 
     tbl.innerHTML = "";
-    eventadder.innerHTML ="Add Event on: " + months[month] + " " + year;
 
     monthAndYear.innerHTML = months[month] + " " + year;
     selectYear.value = year;
@@ -82,9 +82,13 @@ function showCalendar(month, year) {
                 button.setAttribute("class","btn btn-primary");
                 button.setAttribute("data-toggle","modal");
                 button.setAttribute("data-target","#exampleModal");
+                button.setAttribute("id",`${date}`)
                 button.addEventListener('click',function(){
-                    let val = button.value;
-                    console.log(val);
+                    var row = document.getElementById("eventrow");
+                    eventadder.innerText = "Add Event on :"  + button.id + " " + months[month] + " " + year;
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    
                 });
                 
                 let cellText = document.createTextNode(date);
@@ -104,7 +108,21 @@ function showCalendar(month, year) {
 
 }
 
+var addtotable = document.getElementById("addToTable");
 
+
+
+
+
+addtotable.addEventListener('click',function(){
+    var evet = document.getElementById("recipientname").value;
+
+    cell1.innerHTML = evet;
+    
+   // cell2.innerText = evet;
+    
+
+})
  
 
 
