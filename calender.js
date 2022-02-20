@@ -1,7 +1,6 @@
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
-console.log(currentYear)
 let selectYear = document.getElementById("year");
 let selectMonth = document.getElementById("month");
 let eventadder = document.getElementById("exampleModalLabel");
@@ -46,18 +45,12 @@ function showCalendar(month, year) {
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
     let date = 1;
 
-
     let tbl = document.getElementById("calendar-body"); 
-
     tbl.innerHTML = "";
-
     monthAndYear.innerHTML = months[month] + " " + year;
     selectYear.value = year;
     selectMonth.value = month;
 
-
-    
-    
     for (let i = 0; i < 6; i++) {
         let row = document.createElement("tr");
         
@@ -66,11 +59,8 @@ function showCalendar(month, year) {
             if (i === 0 && j < firstDay) {
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode("");
-
                 cell.appendChild(cellText);
-                row.appendChild(cell);
-                
-                
+                row.appendChild(cell);                
             }
             else if (date > daysInMonth) {
                 break;
@@ -86,14 +76,10 @@ function showCalendar(month, year) {
                 button.addEventListener('click',function(){
                     var row = document.getElementById("eventrow");
                     eventadder.innerText = "Add Event on :"  + button.id + " " + months[month] + " " + year;
-                    var cell1 = row.insertCell(0);
-                    var cell2 = row.insertCell(1);
-                    
                 });
                 
                 let cellText = document.createTextNode(date);
-                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                   
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()){                 
                 }
                 cell.appendChild(button).appendChild(cellText);
                 row.appendChild(cell);
@@ -109,21 +95,18 @@ function showCalendar(month, year) {
 }
 
 var addtotable = document.getElementById("addToTable");
-
-
+var table = document.getElementById("eventTable");
 
 
 
 addtotable.addEventListener('click',function(){
+
+    var row = document.createElement("tr");
+    table.appendChild(row);
     var evet = document.getElementById("recipientname").value;
-
-    cell1.innerHTML = evet;
-    
-   // cell2.innerText = evet;
-    
-
+    var date = row.insertCell(0);
+    var event = row.insertCell(1);
+    event.innerHTML = evet;
+    date.innerText = eventadder.value;
+    console.log(date);
 })
- 
-
-
-
